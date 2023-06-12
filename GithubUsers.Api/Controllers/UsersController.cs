@@ -21,12 +21,12 @@ namespace GithubUsers.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetUsersAsync()
+        public async Task<ActionResult> RetrieveUsers()
         {
             List<UserInfo> users = new List<UserInfo>();
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://api.github.com");
-            var token = "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";
+            var token = "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";
             client.DefaultRequestHeaders.UserAgent.Add(new System.Net.Http.Headers.ProductInfoHeaderValue("AppName", "1.0"));
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Token", token);
