@@ -63,7 +63,14 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Users = await Http.GetFromJsonAsync<List<UserInfo>>(endPointUrl);
+        try
+        {
+            Users = await Http.GetFromJsonAsync<List<UserInfo>>(endPointUrl);
+        }
+        catch (Exception ex)
+        {
+            NavManager.NavigateTo("/error401");
+        }
 
     }
 

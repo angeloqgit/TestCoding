@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GithubUsers.Web", "GithubUs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GithubUsers.Api", "GithubUsers.Api\GithubUsers.Api.csproj", "{7F235B8C-CDC1-4B47-93FD-78322877953C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GithubUsers.Shared", "GithubUsers.Shared\GithubUsers.Shared.csproj", "{0996D0E9-5000-4BE0-8451-9399B1BE2C13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GithubUsers.Shared", "GithubUsers.Shared\GithubUsers.Shared.csproj", "{0996D0E9-5000-4BE0-8451-9399B1BE2C13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
