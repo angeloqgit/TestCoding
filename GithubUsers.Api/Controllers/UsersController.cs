@@ -26,7 +26,7 @@ namespace GithubUsers.Api.Controllers
             List<UserInfo> users = new List<UserInfo>();
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://api.github.com");
-            var token = "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";
+            var token = "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";
             client.DefaultRequestHeaders.UserAgent.Add(new System.Net.Http.Headers.ProductInfoHeaderValue("AppName", "1.0"));
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Token", token);
@@ -57,14 +57,19 @@ namespace GithubUsers.Api.Controllers
                             _logger.LogInformation($"Username {item?.Login} not found");
                         }
                     }
-                    users = users.OrderBy( a => a.Name ).ToList();
+                    users = users.OrderBy(a => a.Name).ToList();
+                }
+                else
+                {
+                    _logger.LogError("Unauthorized");
+                    return StatusCode(401, "Unauthorized");
                 }
                 
                 return Ok(users);
             }
             catch (Exception ex)
             {
-                _logger.LogInformation(ex.Message);
+                _logger.LogError(ex.Message);
                 return StatusCode(500, "Internal server error");
             }
         }
