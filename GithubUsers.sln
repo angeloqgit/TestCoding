@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GithubUsers.Api", "GithubUs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GithubUsers.Shared", "GithubUsers.Shared\GithubUsers.Shared.csproj", "{0996D0E9-5000-4BE0-8451-9399B1BE2C13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GithubUsers.Test", "GithubUsers.Test\GithubUsers.Test.csproj", "{44E08E4D-49AD-49C9-AAC8-C5067DC6EB7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0996D0E9-5000-4BE0-8451-9399B1BE2C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0996D0E9-5000-4BE0-8451-9399B1BE2C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0996D0E9-5000-4BE0-8451-9399B1BE2C13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44E08E4D-49AD-49C9-AAC8-C5067DC6EB7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E08E4D-49AD-49C9-AAC8-C5067DC6EB7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E08E4D-49AD-49C9-AAC8-C5067DC6EB7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E08E4D-49AD-49C9-AAC8-C5067DC6EB7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
