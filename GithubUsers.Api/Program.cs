@@ -1,3 +1,5 @@
+using GithubUsers.Api.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +11,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
+builder.Services.AddScoped<IUserService, UserService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

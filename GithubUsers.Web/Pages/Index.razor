@@ -52,22 +52,14 @@
 
 @code {
 
-    public readonly HttpClient _httpClient;
-
-    [Inject]
-    public HttpClient Http { get; set; }
-
     protected List<UserInfo> Users { get; set; }
-
-    string endPointUrl = "https://localhost:7248/api/Users";
-
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            Users = await Http.GetFromJsonAsync<List<UserInfo>>(endPointUrl);
-        }
-        catch (Exception ex)
+        ServiceResponse<List<UserInfo>> response = new();
+
+        response = await UserServ.RetreiveUsers();
+        Users = response.Data;
+        if (!response.isSuccess)
         {
             NavManager.NavigateTo("/error401");
         }
