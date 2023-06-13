@@ -25,7 +25,7 @@ namespace GithubUsers.Api.Controllers
             var response = await _userService.RetrieveUsers();
             if (!response.isSuccess)
             {
-                return BadRequest(response);
+                return StatusCode(401, response);
             }
             return Ok(response);
         }

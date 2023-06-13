@@ -14,8 +14,19 @@ namespace GithubUsers.Web.Services
 
         public async Task<ServiceResponse<List<UserInfo>>> RetreiveUsers()
         {
+            ServiceResponse<List<UserInfo>> serviceResponse = new();
             string endPointUrl = "https://localhost:7248/api/Users";
-            return await _http.GetFromJsonAsync<ServiceResponse<List<UserInfo>>>(endPointUrl);
+            try
+            {
+                serviceResponse = await _http.GetFromJsonAsync<ServiceResponse<List<UserInfo>>>(endPointUrl);
+            }
+            catch (HttpRequestException ex)
+            {
+                serviceResponse.isSuccess = false;
+                serviceResponse.Message = ex.Message;
+                serviceResponse.Data = new();
+            }
+            return serviceResponse;
         }
 
     }
