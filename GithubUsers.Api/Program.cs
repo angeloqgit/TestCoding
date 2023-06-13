@@ -1,4 +1,5 @@
 using GithubUsers.Api.Services;
+using GithubUsers.Shared.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
+//builder.Services.AddOptions();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.Configure<AppSettingsModel>(builder.Configuration.GetSection("ApiSettings")); 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,3 +1,4 @@
+using GithubUsers.Shared.Models;
 using GithubUsers.Web.Data;
 using GithubUsers.Web.Services;
 using Microsoft.AspNetCore.Components;
@@ -13,6 +14,8 @@ builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddMudServices();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.Configure<AppSettingsModel>(builder.Configuration.GetSection("WebSettings"));
+builder.Services.AddOptions();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

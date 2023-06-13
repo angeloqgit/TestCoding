@@ -1,4 +1,5 @@
 ﻿using GithubUsers.Shared.Models;
+using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 
 namespace GithubUsers.Web.Services
@@ -6,19 +7,20 @@ namespace GithubUsers.Web.Services
     public class UserService : IUserService
     {
         private readonly HttpClient _http;
+        private readonly AppSettingsModel _settings;
 
-        public UserService(HttpClient http)
+        public UserService(HttpClient http, IOptions<AppSettingsModel> settings)
         {
             _http = http;
+            _settings = settings.Value;
         }
 
         public async Task<ServiceResponse<List<UserInfo>>> RetreiveUsers()
         {
             ServiceResponse<List<UserInfo>> serviceResponse = new();
-            string endPointUrl = "https://localhost:7248/api/Users";
             try
             {
-                serviceResponse = await _http.GetFromJsonAsync<ServiceResponse<List<UserInfo>>>(endPointUrl);
+                serviceResponse = await _http.GetFromJsonAsync<ServiceResponse<List<UserInfo>>>(_settings.EndPoint);
             }
             catch (HttpRequestException ex)
             {
