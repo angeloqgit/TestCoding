@@ -31,6 +31,7 @@ namespace GithubUsers.Api.Services
 
             try
             {
+                // Get List of Username
                 var responseUsers = await client.GetAsync("/users");
                 if (responseUsers.IsSuccessStatusCode)
                 {
@@ -41,6 +42,7 @@ namespace GithubUsers.Api.Services
                     resultUsers = resultUsers?.Distinct().ToList();
                     foreach (var item in resultUsers)
                     {
+                        // Get User basic information
                         var responseUser = await client.GetAsync("/users/" + item?.Login);
                         if (responseUser.IsSuccessStatusCode)
                         {
