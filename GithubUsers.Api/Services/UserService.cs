@@ -24,10 +24,9 @@ namespace GithubUsers.Api.Services
             List<UserInfo> users = new List<UserInfo>();
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(_settings.EndPoint);
-            var token = "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";
             client.DefaultRequestHeaders.UserAgent.Add(new System.Net.Http.Headers.ProductInfoHeaderValue("AppName", "1.0"));
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Token", token);
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Token", _settings.Token);
 
             try
             {

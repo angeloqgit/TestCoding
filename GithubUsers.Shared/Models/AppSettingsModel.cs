@@ -9,5 +9,6 @@ namespace GithubUsers.Shared.Models
     public class AppSettingsModel
     {
         public string EndPoint { get; set; }
+        public string Token { get; set; }
     }
 }
